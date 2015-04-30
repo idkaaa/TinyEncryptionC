@@ -11,7 +11,7 @@ using namespace std;
 
 void main()
 {
-	int iterations = 500;
+	int iterations = 32;
 	unsigned long delta = 0x9e3779b9;
 
 
@@ -21,31 +21,31 @@ void main()
 
 	auto t1 = chrono::high_resolution_clock::now();
 
-	bool bEncrypt = true;
+	//bool bEncrypt = true;
 
-	Tea code = Tea(m_128BitKey, bEncrypt, iterations, delta, fileName);
+	//Tea code = Tea(m_128BitKey, bEncrypt, iterations, delta, fileName);
 
 
-	Tea decode = Tea(m_128BitKey, bEncrypt, iterations, delta, fileName);
+	//Tea decode = Tea(m_128BitKey, bEncrypt, iterations, delta, fileName);
 	
 
 
 
-	//unsigned long m_64BitData[] = { 123456, 78910 };
+	unsigned long m_64BitData[] = { 123456, 78910 };
 
-	//cout << "Raw: data 1: " << m_64BitData[0] << " data 2: " << m_64BitData[1] << "\n";
+	cout << "Raw: data 1: " << m_64BitData[0] << " data 2: " << m_64BitData[1] << "\n";
 
-	//bool bEncrypt = true;
+	bool bEncrypt = true;
 
-	//Tea code = Tea(m_64BitData, m_128BitKey, bEncrypt, iterations, delta);
+	Tea code = Tea(m_64BitData, m_128BitKey, bEncrypt, iterations, delta);
 
-	//cout << "Encrypted: data 1: " << m_64BitData[0] << " data 2: " << m_64BitData[1] << "\n";
+	cout << "Encrypted: data 1: " << m_64BitData[0] << " data 2: " << m_64BitData[1] << "\n";
 
-	//bEncrypt = false;
+	bEncrypt = false;
 
-	//Tea decode = Tea(m_64BitData, m_128BitKey, bEncrypt, iterations, delta);
+	Tea decode = Tea(m_64BitData, m_128BitKey, bEncrypt, iterations, delta);
 
-	//cout << "Decrypted: data 1: " << m_64BitData[0] << " data 2: " << m_64BitData[1] << "\n";
+	cout << "Decrypted: data 1: " << m_64BitData[0] << " data 2: " << m_64BitData[1] << "\n";
 
 	
 
